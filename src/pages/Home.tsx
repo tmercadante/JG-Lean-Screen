@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -9,9 +10,9 @@ import ScreenTimeModal from '@/components/ScreenTimeModal';
 export default function Home() {
   const { user, profile, signOut, loading } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
+
   const handleAddScreenTime = () => {
-    // TODO: open your modal, route to a form, etc.
-    // e.g., setOpen(true) or navigate("/log-week")
+    setModalOpen(true);
   };
 
   // Redirect to auth if not authenticated
@@ -68,13 +69,13 @@ export default function Home() {
           {/* Primary Action */}
           <div className="space-y-4">
             <Button
-  className="h-14 w-full sm:w-auto px-6 text-lg gap-3 bg-[var(--primary)] text-white hover:opacity-90"
-  aria-label="Add Screen Time"
-  onClick={handleAddScreenTime} // keep your existing handler
->
-  <Hourglass size={32} strokeWidth={1.75} aria-hidden="true" />
-  Add Screen Time
-</Button>
+              className="h-16 w-full sm:w-auto px-7 text-lg gap-3 rounded-xl bg-[var(--primary)] text-white hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              aria-label="Add this week's screen time"
+              onClick={handleAddScreenTime}
+            >
+              <Hourglass size={36} strokeWidth={1.75} aria-hidden="true" />
+              Add This Week&apos;s Screen Time
+            </Button>
 
             <p className="text-sm text-muted-foreground">
               Submit your total screen time for this week or the past two weeks
