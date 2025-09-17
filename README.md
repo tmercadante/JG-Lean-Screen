@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# Lean Screen ⏱️📵
 
-## Project info
+A lean, dark-mode, screen-time tracker built with **Vite + React + TypeScript**. Log time, view trends, and (optionally) compare with friends—all without bloat.
 
-**URL**: https://lovable.dev/projects/f4f2c97e-26b8-43e1-a180-540a7eb81e6b
+> Tech detected in this repo: Vite, React, TypeScript, Tailwind CSS, shadcn-ui, and a `supabase/` directory for DB/migrations. Package manager defaults to `npm`.  
+> Node 20 LTS recommended.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Table of Contents
 
-**Use Lovable**
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Dark Theme](#dark-theme)
+- [Quick Start](#quick-start)
+- [Environment Variables (optional)](#environment-variables-optional)
+- [Project Structure](#project-structure)
+- [Available Scripts](#available-scripts)
+- [Conventions](#conventions)
+- [Roadmap](#roadmap)
+- [Troubleshooting](#troubleshooting)
+- [Acknowledgements](#acknowledgements)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f4f2c97e-26b8-43e1-a180-540a7eb81e6b) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Features
 
-**Use your preferred IDE**
+- 🔐 Auth-ready foundation (Supabase compatible; can be toggled off)
+- 🕒 Screen-time logging (daily/weekly)
+- 📈 Trend views (week over week)
+- 🏆 Leaderboard (optional, compute-on-read)
+- 🌙 Dark-first UI built with Tailwind + shadcn-ui
+- ⚡ Fast dev loop with Vite
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+> Note: If you don’t plan to use Supabase, the app still runs in local/demo mode. Leaderboard can compute ranks dynamically to avoid badge storage complexity.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Build/Dev:** Vite
+- **Runtime:** React 18 + TypeScript
+- **UI:** Tailwind CSS + shadcn-ui
+- **State/Utils:** Lightweight React patterns
+- **Data:** Supabase SQL (optional; `supabase/` folder present)
+- **Linting/Format:** ESLint, Prettier
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Dark Theme
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Color system (dark-mode first):
 
-**Edit a file directly in GitHub**
+- **Primary:** `#0090c1`
+- **Background:** `#121212`
+- **Accent/Muted:** `#757575`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Add to your CSS variables (e.g., `src/index.css` or `src/globals.css`):
 
-**Use GitHub Codespaces**
+```css
+:root {
+  --primary: #0090c1;
+  --bg: #121212;
+  --muted: #757575;
+}
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+html, body {
+  background-color: var(--bg);
+  color: #e6e6e6;
+}
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f4f2c97e-26b8-43e1-a180-540a7eb81e6b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+a { color: var(--primary); }
