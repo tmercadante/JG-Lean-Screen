@@ -72,15 +72,16 @@ export default function Home() {
               aria-label="Add screen time"
               onClick={handleAddScreenTime}
             >
-              {/* Oversized responsive icon */}
+              {/* Make the icon fill most of the circle (CSS width/height %) AND set a huge fallback size */}
               <Hourglass
-                className="w-[144px] h-[144px] sm:w-[176px] sm:h-[176px] md:w-[240px] md:h-[240px]"
+                size={512}
+                className="w-[70%] h-[70%] sm:w-[75%] sm:h-[75%] md:w-[80%] md:h-[80%]"
                 strokeWidth={2.25}
                 aria-hidden="true"
               />
             </Button>
 
-            {/* Label sits below so the icon can be huge inside the circle */}
+            {/* Label sits below so the icon can dominate the circle */}
             <div>
               <span className="text-xl font-semibold text-foreground">Add Screen Time</span>
             </div>
