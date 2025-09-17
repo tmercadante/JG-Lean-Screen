@@ -70,3 +70,110 @@ html, body {
 }
 
 a { color: var(--primary); }
+```
+
+Tailwind usage example:
+
+```<button className="rounded-lg px-4 py-2 bg-[var(--primary)] text-white hover:opacity-90">
+  Log time
+</button>
+```
+## Quick Start
+
+Prereqs
+- Node 20 LTS (recommended)
+- npm (repo includes package-lock.json; stick to npm for consistency)
+
+If you use nvm:
+```nvm install 20
+nvm use 20
+```
+
+Install & run:
+```npm ci        # or: npm install
+npm run dev   # http://localhost:5173 by default
+```
+
+Build & preview:
+```npm run build
+npm run preview
+```
+
+## Environment Variables (optional)
+
+If you enable Supabase features, create a .env in the project root:
+```VITE_SUPABASE_URL=your-project-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+## Project Structure
+
+```JG-Lean-Screen/
+├─ public/                # Static assets
+├─ src/                   # Application source
+│  ├─ components/         # Reusable UI
+│  ├─ pages|routes/       # App routes (Vite/React)
+│  ├─ lib/                # Helpers, hooks
+│  └─ styles/             # Global CSS (Tailwind entry)
+├─ supabase/              # SQL/migrations (optional)
+├─ index.html             # Vite entry
+├─ tailwind.config.ts     # Tailwind config
+├─ postcss.config.js
+├─ eslint.config.js
+├─ tsconfig*.json
+├─ vite.config.ts
+├─ package.json
+└─ README.md
+```
+
+## Available Scripts
+
+Common scripts (check package.json for the full list):
+- ```npm run dev``` – start local dev server
+- ```npm run build``` – production build
+- ```npm run preview``` – preview the production build
+- ```npm run lint``` – lint codebase (if configured)
+
+## Conventions
+- Package Manager: npm (consistent with package-lock.json)
+- Node: v20 LTS
+- Styling: Tailwind utility-first; prefer tokens via CSS variables
+- UI Kit: shadcn-ui for primitives; keep components composable
+- Data: Favor compute-on-read for ranks/badges to avoid revocation logic
+- Git: Conventional commits if possible (e.g., feat:, fix:)
+
+## Roadmap
+- Supabase auth flows (email magic-link)
+- Screen-time CRUD + validation (0–168 hrs/wk)
+- Weekly/monthly charts
+- Dynamic leaderboard (no stored badges)
+- Streaks (compute-on-read)
+- Minimal profile & settings (dark theme persistent)
+
+## Troubleshooting
+- “next: command not found”
+This project is Vite + React, not Next.js. Use ```npm run dev```.
+- Wrong Node version / build fails
+Use Node 20 LTS (```nvm use 20```). Remove conflicting locks if switching managers.
+
+- Package manager conflicts
+Stick to ```npm```. If you previously used Bun or pnpm, delete ```bun.lockb``` / ```pnpm-lock.yaml``` before installing to avoid mismatch.
+
+- Styles not applying
+Ensure Tailwind is set up in your entry CSS and ```tailwind.config.ts``` includes your src/** paths.
+
+## Acknowledgements
+- Vite + React + TypeScript
+- Tailwind CSS + shadcn-ui
+- Supabase (optional DB/auth)
+
+## License
+TBD
+```
+References used to ground this README in the current repo:
+- Repo landing shows Vite/TypeScript/React/shadcn-ui/Tailwind stack and presence of `supabase/` directory. :contentReference[oaicite:1]{index=1}
+- Language breakdown (TypeScript, PL/pgSQL, CSS) indicates Supabase SQL is included. :contentReference[oaicite:2]{index=2}
+
+If you want me to tailor environment examples to the exact components in `src/` (routes, hooks, UI), share those files or grant me read access and I’ll refine the README accordingly.
+::contentReference[oaicite:3]{index=3}
+```
