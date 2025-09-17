@@ -13,7 +13,6 @@ export default function Home() {
 
   const handleAddScreenTime = () => setModalOpen(true);
 
-  // Redirect to auth if not authenticated
   if (!loading && !user) return <Navigate to="/auth" replace />;
 
   if (loading) {
@@ -60,12 +59,12 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Primary Action – circular brand-blue button with very large icon */}
-          <div className="space-y-4">
+          {/* Primary Action – circular brand-blue button with oversized centered icon */}
+          <div className="space-y-3">
             <Button
-              className="mx-auto !w-64 !h-64 sm:!w-72 sm:!h-72 md:!w-80 md:!h-80
+              className="mx-auto !w-64 !h-64 sm:!w-72 sm:!h-72 md:!w-96 md:!h-96
                          rounded-full
-                         inline-flex flex-col items-center justify-center gap-4
+                         inline-flex items-center justify-center
                          bg-primary text-primary-foreground hover:bg-primary/90
                          focus-visible:ring-4 focus-visible:ring-primary
                          focus-visible:ring-offset-2 focus-visible:ring-offset-background
@@ -73,13 +72,18 @@ export default function Home() {
               aria-label="Add screen time"
               onClick={handleAddScreenTime}
             >
+              {/* Oversized responsive icon */}
               <Hourglass
-                size={180}           // very large icon; adjust if you want bigger
+                className="w-[144px] h-[144px] sm:w-[176px] sm:h-[176px] md:w-[240px] md:h-[240px]"
                 strokeWidth={2.25}
                 aria-hidden="true"
               />
-              <span className="text-xl font-semibold">Add Screen Time</span>
             </Button>
+
+            {/* Label sits below so the icon can be huge inside the circle */}
+            <div>
+              <span className="text-xl font-semibold text-foreground">Add Screen Time</span>
+            </div>
 
             <p className="text-sm text-muted-foreground">
               Submit your total screen time for this week or the past two weeks
