@@ -169,11 +169,3 @@ Ensure Tailwind is set up in your entry CSS and ```tailwind.config.ts``` include
 
 ## License
 TBD
-```
-References used to ground this README in the current repo:
-- Repo landing shows Vite/TypeScript/React/shadcn-ui/Tailwind stack and presence of `supabase/` directory. :contentReference[oaicite:1]{index=1}
-- Language breakdown (TypeScript, PL/pgSQL, CSS) indicates Supabase SQL is included. :contentReference[oaicite:2]{index=2}
-
-If you want me to tailor environment examples to the exact components in `src/` (routes, hooks, UI), share those files or grant me read access and I’ll refine the README accordingly.
-::contentReference[oaicite:3]{index=3}
-```
