@@ -68,17 +68,18 @@ export default function Home() {
                          bg-primary text-primary-foreground hover:bg-primary/90
                          focus-visible:ring-4 focus-visible:ring-primary
                          focus-visible:ring-offset-2 focus-visible:ring-offset-background
-                         shadow-lg"
+                         shadow-lg text-[0]"
               aria-label="Add screen time"
               onClick={handleAddScreenTime}
             >
-              {/* Make the icon fill most of the circle (CSS width/height %) AND set a huge fallback size */}
-              <Hourglass
-                size={512}
-                className="w-[70%] h-[70%] sm:w-[75%] sm:h-[75%] md:w-[80%] md:h-[80%]"
-                strokeWidth={2.25}
-                aria-hidden="true"
-              />
+              {/* Wrapper ensures the SVG fills the circle; inline style wins over any global svg sizing */}
+              <div className="flex items-center justify-center w-[78%] h-[78%]">
+                <Hourglass
+                  style={{ width: '100%', height: '100%' }}
+                  strokeWidth={2.4}
+                  aria-hidden="true"
+                />
+              </div>
             </Button>
 
             {/* Label sits below so the icon can dominate the circle */}
