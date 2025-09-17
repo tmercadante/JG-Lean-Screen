@@ -60,11 +60,12 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Primary Action – circular brand-blue button with large icon */}
+          {/* Primary Action – circular brand-blue button with very large icon */}
           <div className="space-y-4">
             <Button
-              className="mx-auto w-full max-w-[420px] aspect-square rounded-full
-                         inline-flex flex-col items-center justify-center gap-5
+              className="mx-auto !w-64 !h-64 sm:!w-72 sm:!h-72 md:!w-80 md:!h-80
+                         rounded-full
+                         inline-flex flex-col items-center justify-center gap-4
                          bg-primary text-primary-foreground hover:bg-primary/90
                          focus-visible:ring-4 focus-visible:ring-primary
                          focus-visible:ring-offset-2 focus-visible:ring-offset-background
@@ -73,11 +74,11 @@ export default function Home() {
               onClick={handleAddScreenTime}
             >
               <Hourglass
-                className="w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48"
+                size={180}           // very large icon; adjust if you want bigger
                 strokeWidth={2.25}
                 aria-hidden="true"
               />
-              <span className="text-2xl font-semibold">Add Screen Time</span>
+              <span className="text-xl font-semibold">Add Screen Time</span>
             </Button>
 
             <p className="text-sm text-muted-foreground">
