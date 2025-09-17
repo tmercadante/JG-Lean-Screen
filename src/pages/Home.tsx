@@ -66,15 +66,20 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Primary Action */}
+          {/* Primary Action – large square brand-blue button */}
           <div className="space-y-4">
             <Button
-              className="h-16 w-full sm:w-auto px-7 text-lg gap-3 rounded-xl bg-[var(--primary)] text-white hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              aria-label="Add this week's screen time"
+              className="w-full max-w-[420px] mx-auto aspect-square p-8 sm:p-10 md:p-12
+                         inline-flex flex-col items-center justify-center gap-4 rounded-2xl
+                         h-auto text-white bg-[var(--primary)] hover:bg-[var(--primary)]/90
+                         focus-visible:ring-2 focus-visible:ring-[var(--primary)]
+                         focus-visible:ring-offset-2 focus-visible:ring-offset-background
+                         shadow-lg"
+              aria-label="Add screen time"
               onClick={handleAddScreenTime}
             >
-              <Hourglass size={36} strokeWidth={1.75} aria-hidden="true" />
-              Add This Week&apos;s Screen Time
+              <Hourglass size={64} strokeWidth={2} aria-hidden="true" />
+              <span className="text-2xl font-semibold">Add Screen Time</span>
             </Button>
 
             <p className="text-sm text-muted-foreground">
