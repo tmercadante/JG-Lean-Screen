@@ -11,14 +11,10 @@ export default function Home() {
   const { user, profile, signOut, loading } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleAddScreenTime = () => {
-    setModalOpen(true);
-  };
+  const handleAddScreenTime = () => setModalOpen(true);
 
   // Redirect to auth if not authenticated
-  if (!loading && !user) {
-    return <Navigate to="/auth" replace />;
-  }
+  if (!loading && !user) return <Navigate to="/auth" replace />;
 
   if (loading) {
     return (
@@ -58,27 +54,29 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center space-y-8">
           {/* Hero Section */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-foreground">
-              Track Your Digital Wellness
-            </h2>
+            <h2 className="text-3xl font-bold text-foreground">Track Your Digital Wellness</h2>
             <p className="text-lg text-muted-foreground">
               Record your weekly screen time and compete for the lowest usage. Less screen time = higher rank!
             </p>
           </div>
 
-          {/* Primary Action – large square brand-blue button */}
+          {/* Primary Action – circular brand-blue button with large icon */}
           <div className="space-y-4">
             <Button
-              className="w-full max-w-[480px] mx-auto aspect-square p-12
-                         inline-flex flex-col items-center justify-center gap-5 rounded-2xl
+              className="mx-auto w-full max-w-[420px] aspect-square rounded-full
+                         inline-flex flex-col items-center justify-center gap-5
                          bg-primary text-primary-foreground hover:bg-primary/90
-                         focus-visible:ring-2 focus-visible:ring-primary
+                         focus-visible:ring-4 focus-visible:ring-primary
                          focus-visible:ring-offset-2 focus-visible:ring-offset-background
                          shadow-lg"
               aria-label="Add screen time"
               onClick={handleAddScreenTime}
             >
-              <Hourglass size={96} strokeWidth={2} aria-hidden="true" />
+              <Hourglass
+                className="w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48"
+                strokeWidth={2.25}
+                aria-hidden="true"
+              />
               <span className="text-2xl font-semibold">Add Screen Time</span>
             </Button>
 
