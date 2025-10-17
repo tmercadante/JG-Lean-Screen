@@ -1,0 +1,3 @@
+# supabase/functions/leaderboard/config.toml
+[functions.leaderboard]
+verify_jwt = false
